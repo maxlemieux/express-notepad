@@ -1,11 +1,10 @@
-// Dependencies
-// =============================================================
+/* Dependencies */
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const uuid = require('uuid');
 
-/* Setup Express app */
+/* Set up Express app */
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -49,8 +48,8 @@ app.post('/api/notes', function(req, res) {
     /* Set Version 4 (Random) UUID for this note */
     newNote.id = uuid.v4();
     
+    /* Add the new note to the array of existing notes */
     notes.push(newNote);
-    console.log(notes);
 
     /* Write the notes back to the file DB with the new note included */
     fs.writeFile(fileDbPath, JSON.stringify(notes), (err) => {
@@ -77,12 +76,14 @@ app.delete('/api/notes/:id', function(req, res) {
     /* Write the notes back to the file DB with the deleted note omitted */
     fs.writeFile(fileDbPath, JSON.stringify(remainingNotes), (err) => {
       if (err) throw err;
+
+      /* deleteNote() expects a return value here, so send one */
+      return res.json(true);
     });
   });
 });
 
-// Starts the server to begin listening
-// =============================================================
+/* Start the server */
 app.listen(PORT, function() {
   console.log('App listening on PORT ' + PORT);
 });
