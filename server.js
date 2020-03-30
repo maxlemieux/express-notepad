@@ -32,19 +32,31 @@ app.get('/api/notes', function(req, res) {
   });
 });
   
-// Basic route that sends the user first to the AJAX Page
+/* Load index page - this catchall route must be the last GET route */
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-// Create New Notes
+/* API endpoint to create a new note */
 app.post('/api/notes', function(req, res) {
-  const newCharacter = req.body;
-  characters.push(newCharacter);
-  res.json(newCharacter);
+  /* Read the existing notes from the file DB */
+  fs.readFile(fileDbPath, (err, data) => {
+    if (err) throw err;
+    const notes = JSON.parse(data);
+    const newNote = req.body;
+    notes.push(newNote);
+    console.log(notes);
+
+    /* Write the notes back to the file DB with the new note included */
+    fs.writeFile(fileDbPath, JSON.stringify(notes), (err) => {
+      if (err) throw err;
+    });
+    /* Send the new note back to the client */
+    res.json(newNote);
+  });
 });
 
-// Displays a single character, or returns false
+/* API endpoint to delete a specific note */
 app.delete('/api/notes/:id', function(req, res) {
   const note = req.params.note;
 
