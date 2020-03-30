@@ -16,10 +16,7 @@ app.use(express.json());
 // Routes
 // =============================================================
 
-// Basic route that sends the user first to the AJAX Page
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
-});
+
 
 app.get('/notes', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/notes.html'));
@@ -30,6 +27,11 @@ app.get('/api/notes', function(req, res) {
   return res.json(notes);
 });
 
+// Basic route that sends the user first to the AJAX Page
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 // Create New Notes
 app.post('/api/notes', function(req, res) {
   const newCharacter = req.body;
@@ -38,7 +40,7 @@ app.post('/api/notes', function(req, res) {
 });
 
 // Displays a single character, or returns false
-app.get('/api/notes/:id', function(req, res) {
+app.delete('/api/notes/:id', function(req, res) {
   const note = req.params.note;
 
   console.log(note);
