@@ -4,29 +4,34 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
-// Sets up the Express App
-// =============================================================
+/* Setup Express app */
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
+/* Middleware */
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Routes
-// =============================================================
+/* Static routes */
+app.use(express.static('public'));
 
+/* File DB */
+const fileDbPath = path.join(__dirname, 'db/db.json');
 
-
+/* Routes */
 app.get('/notes', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
 
-// Displays all notes
+/* Displays all notes */
 app.get('/api/notes', function(req, res) {
-  return res.json(notes);
+  fs.readFile(fileDbPath, (err, data) => {
+    if (err) throw err;
+    const notes = JSON.parse(data);
+    res.json(notes);
+  });
 });
-
+  
 // Basic route that sends the user first to the AJAX Page
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
