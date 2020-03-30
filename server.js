@@ -3,6 +3,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const uuid = require('uuid');
 
 /* Setup Express app */
 const app = express();
@@ -44,6 +45,10 @@ app.post('/api/notes', function(req, res) {
     if (err) throw err;
     const notes = JSON.parse(data);
     const newNote = req.body;
+
+    /* Set Version 4 (Random) UUID for this note */
+    newNote.id = uuid.v4();
+    
     notes.push(newNote);
     console.log(notes);
 
@@ -58,17 +63,22 @@ app.post('/api/notes', function(req, res) {
 
 /* API endpoint to delete a specific note */
 app.delete('/api/notes/:id', function(req, res) {
-  const note = req.params.note;
-
-  console.log(note);
-
-  for (const i = 0; i < notes.length; i++) {
-    if (note === notes[i].id) {
-      return res.json(notes[i]);
-    }
-  }
-
-  return res.json(false);
+  const noteId = req.params.id;
+  console.log(noteId);
+  fs.readFile(fileDbPath, (err, data) => {
+    if (err) throw err;
+    const notes = JSON.parse(data);
+    const remainingNotes = [];
+    for (let i=0; i<notes.length; i++) {
+      if (notes[i].id !== noteId) {
+        remainingNotes.push(notes[i]);
+      };
+    };
+    /* Write the notes back to the file DB with the deleted note omitted */
+    fs.writeFile(fileDbPath, JSON.stringify(remainingNotes), (err) => {
+      if (err) throw err;
+    });
+  });
 });
 
 // Starts the server to begin listening
