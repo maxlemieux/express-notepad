@@ -32,7 +32,7 @@ Run the app:
 
 `node server.js`
 
-This should launch an Express server on port 3000. Visit http://localhost:3000 and click "Get Started" to begin.
+This should launch an Express server on port 3000. Visit http://localhost:3000 to use the app.
 
 ### Heroku installation
 Log into Heroku:
@@ -50,6 +50,8 @@ Push the app to Heroku:
 Visit the app at the link provided at the end of the output of the Heroku remote log.
 
 ## Usage
+
+Once you've installed the application either locally or on Heroku, visit it in a browser and click "Get Started" to begin.
 
 You will see the notes screen. The left side shows stored notes, the right side is a simple form allowing you to enter the title and contents of a note. 
 
