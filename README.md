@@ -60,11 +60,14 @@ Click the "pencil" icon at top right of the screen at any time to create a new n
 
 Once you've filled in the title and contents of your note, you can click the "Save" icon on the top right of the screen.
 
-### Editing notes
-Click the name of a note on the left side to load that note. Click "Save" when done editing it to save your changes.
+### Viewing notes
+Click the name of a note on the left side to view that note.
 
 ### Removing notes
 To delete a note, click the "trash" icon next to the name of the note on the left hand side of the screen.
+
+### Help! I want to edit an existing note.
+Editing is not currently supported by this version of express-notepad, however if there is enough interest it may be added to a future release.
 
 ## Demo
 The app is deployed to Heroku (beware, notes may have been inserted from the wild...)
