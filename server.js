@@ -11,8 +11,6 @@ const PORT = process.env.PORT || 3000;
 /* Middleware */
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-/* Static routes */
 app.use(express.static('public'));
 
 /* File DB */
