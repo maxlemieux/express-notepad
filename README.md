@@ -1,5 +1,6 @@
 # express-notepad
 ![dependencies status](https://img.shields.io/david/maxlemieux/express-notepad?style=for-the-badge)
+![code size](https://img.shields.io/github/languages/code-size/maxlemieux/express-notepad?style=for-the-badge)
 
 ## Table of Contents
 * [About](#about)
@@ -36,6 +37,8 @@ Once you've filled in the title and contents of your note, you can click the "Sa
 Click the "pencil" icon at top right of the screen at any time to create a new note.
 
 Click the name of a note on the left side to load that note. Click "Save" when done editing it to save your changes.
+
+To delete a note, click the "trash" icon next to the name of the note on the left hand side of the screen.
 
 ## Demo
 The app is deployed to Heroku (beware, notes may have been inserted from the wild...)
