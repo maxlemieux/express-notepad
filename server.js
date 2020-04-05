@@ -61,7 +61,6 @@ app.post('/api/notes', function(req, res) {
 /* API endpoint to delete a specific note */
 app.delete('/api/notes/:id', function(req, res) {
   const noteId = req.params.id;
-  console.log(noteId);
   fs.readFile(fileDbPath, (err, data) => {
     if (err) throw err;
     const notes = JSON.parse(data);
