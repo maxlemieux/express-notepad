@@ -10,7 +10,7 @@
 * [Technologies](#technologies)
 
 ## About
-Create and manage simple text notes with an Express.js backend.
+Create and manage simple text notes with an Express.js backend. Notes are stored in a flat file on the server, containing data in JSON format.
 
 ## Installation
 
@@ -75,3 +75,4 @@ The app is deployed to Heroku (beware, notes may have been inserted from the wil
 * Node.js
 * Express.js
 * uuid
+* JSON
