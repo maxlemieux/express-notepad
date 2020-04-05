@@ -1,5 +1,5 @@
 # express-notepad
-[![dependencies status](https://img.shields.io/david/maxlemieux/express-notepad?style=for-the-badge)]
+[dependencies status](https://img.shields.io/david/maxlemieux/express-notepad?style=for-the-badge)
 
 ## Table of Contents
 * [About](#about)
