@@ -18,9 +18,12 @@ Clone the repo:
 
 `git clone https://github.com/maxlemieux/express-notepad`
 
-Change directories to `express-notepad`, then install the dependencies (`express` and `uuid`):
+Change directories to `express-notepad`:
 
 `cd express-notepad`
+
+Install the dependencies (`express` and `uuid`):
+
 `npm i`
 
 ### Local installation
@@ -33,12 +36,15 @@ This should launch an Express server on port 3000. Visit http://localhost:3000 a
 
 ### Heroku installation
 Log into Heroku:
+
 `heroku login`
 
 Initialize a new project:
+
 `heroku create`
 
 Push the app to Heroku:
+
 `git push heroku master`
 
 Visit the app at the link provided at the end of the output of the Heroku remote log.
@@ -62,7 +68,6 @@ To delete a note, click the "trash" icon next to the name of the note on the lef
 The app is deployed to Heroku (beware, notes may have been inserted from the wild...)
 
 [https://secure-woodland-11919.herokuapp.com/](https://secure-woodland-11919.herokuapp.com/)
-
 
 ## Technologies used
 * Node.js
