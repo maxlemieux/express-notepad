@@ -72,7 +72,7 @@ Editing is not currently supported by this version of express-notepad, however i
 ## Demo
 The app is deployed to Heroku (beware, notes may have been inserted from the wild...)
 
-[https://secure-woodland-11919.herokuapp.com/](https://secure-woodland-11919.herokuapp.com/)
+[https://immense-eyrie-52876.herokuapp.com/](https://immense-eyrie-52876.herokuapp.com/)
 
 ## Technologies used
 * Node.js
